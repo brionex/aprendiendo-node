@@ -1,6 +1,5 @@
 import readline from 'node:readline'
 
-
 // Crea la interfaz del prompt
 const rl = readline.createInterface({
   input: process.stdin,

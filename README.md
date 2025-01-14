@@ -1,46 +1,24 @@
 # Aprendiendo Node.js
 
 ## Descripción
+
 Este repositorio contiene ejemplos de código utilizados para aprender y practicar el desarrollo con Node.js. Aquí encontrarás diferentes casos prácticos y conceptos clave relacionados con esta tecnología.
 
 ## Contenido del Repositorio
 
-1. **Introducción a Node.js**
-   - Configuración del entorno.
-   - Ejemplos básicos de scripts en Node.js.
-
-2. **Módulos y Dependencias**
-   - Uso de módulos nativos.
-   - Instalación y uso de paquetes con npm.
-
-3. **Sistema de Archivos (fs)**
-   - Lectura y escritura de archivos.
-   - Manejo de rutas.
-
-4. **Servidor HTTP**
-   - Creación de un servidor básico.
-   - Gestión de rutas y respuestas.
-
-5. **Asincronía en Node.js**
-   - Callbacks, Promises y Async/Await.
-   - Uso de eventos y el EventEmitter.
-
-6. **Trabajando con APIs**
-   - Realización de solicitudes HTTP.
-   - Consumo de APIs externas.
-
-7. **Buenas Prácticas y Herramientas**
-   - Estructura de proyectos.
-   - Uso de linters y herramientas de desarrollo.
+1. **Variable 'globalThis'**
+   - Uso de la variable 'globalThis'.
 
 ## Cómo Empezar
 
 1. Clona este repositorio:
+
    ```bash
    git clone <url-del-repositorio>
    ```
 
 2. Instala las dependencias necesarias:
+
    ```bash
    npm install
    ```
@@ -82,9 +60,9 @@ Si deseas contribuir a este repositorio, por favor sigue estos pasos:
 - [Fast Node Manager (fnm)](https://github.com/Schniz/fnm)
 
 ## Autor
+
 Este repositorio fue creado como parte del proceso de aprendizaje personal. Si tienes sugerencias o encuentras algún error, no dudes en abrir un issue.
 
 ---
 
 ¡Gracias por visitar este repositorio y feliz aprendizaje con Node.js! 🎉
-

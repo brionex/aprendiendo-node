@@ -2,12 +2,17 @@
 
 ## Descripción
 
-Este repositorio contiene ejemplos de código utilizados para aprender y practicar el desarrollo con Node.js. Aquí encontrarás diferentes casos prácticos y conceptos clave relacionados con esta tecnología.
+Este repositorio contiene ejemplos de código creados mientras aprendo y practico el desarrollo con Node.js. Aquí encontrarás diferentes casos prácticos y conceptos clave relacionados con esta tecnología.
 
 ## Contenido del Repositorio
 
 1. **Variable 'globalThis'**
+
    - Uso de la variable 'globalThis'.
+
+2. **Sistema de Modulos**
+   - CommonJS
+   - ECMAScript Modules (ESM)
 
 ## Cómo Empezar
 
@@ -24,8 +29,13 @@ Este repositorio contiene ejemplos de código utilizados para aprender y practic
    ```
 
 3. Ejecuta los ejemplos:
+
    ```bash
-   node <archivo>
+   // Ejecuta el archivo de un ejercicio
+   node main.mjs <alias>
+
+   // Ver la lista de alias de los ejercicios
+   node main.mjs alias
    ```
 
 ## Requisitos

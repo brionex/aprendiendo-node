@@ -1,5 +1,5 @@
-import { fork } from 'node:child_process'
-import { resolve } from 'node:path'
+import { resolve } from 'path'
+import { pathToFileURL } from 'url'
 import { MESSAGES } from './src/messages.js'
 import { aliases } from './src/aliases.js'
 
@@ -28,10 +28,12 @@ async function executeAlias(alias) {
   const filePath = resolve(process.cwd(), aliases[alias])
   console.log(MESSAGES.executingAlias(alias, filePath))
 
-  const processExecution = fork(filePath)
-  process.on('error', (error) => {
-    console.error(error)
-  })
+  try {
+    await import(pathToFileURL(filePath))
+  } catch (error) {
+    console.error(`Error al ejecutar el archivo: ${error.message}`)
+    process.exit(1)
+  }
 }
 
 // Procesar argumentos

@@ -36,6 +36,9 @@ Este repositorio contiene ejemplos de código creados mientras aprendo y practic
 
    // Ver la lista de alias de los ejercicios
    node main.mjs alias
+
+   // Ver la ruta del archivo del ejercicio
+   node main.mjs path <alias>
    ```
 
 ## Requisitos

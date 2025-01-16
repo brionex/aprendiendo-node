@@ -2,12 +2,14 @@ import { applyColor } from './colors.js'
 
 export const MESSAGES = {
   usage: applyColor(
-    ['gray', 'white', 'cyan', 'reset', 'cyan', 'reset'],
+    ['gray', 'white', 'yellow', 'reset', 'yellow', 'reset', 'yellow'],
     '\n💡 %%Uso:\n' +
       '\n%%Ejecuta el archivo de un alias:\n' +
-      '-> %%node main.mjs <alias>%%\n\n' +
+      '-> %%node main.js <alias>%%\n\n' +
       'Ver la lista de alias:\n' +
-      '-> %%node main.mjs alias%%\n'
+      '-> %%node main.js alias%%\n\n' +
+      'Ver la ruta de un alias:\n' +
+      '-> %%node main.js path <alias>\n'
   ),
 
   aliasList: applyColor(['gray'], '\n🗂️ %%Alias:\n'),

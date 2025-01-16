@@ -13,8 +13,22 @@ function showHelp() {
 function listAliases() {
   console.log(MESSAGES.aliasList)
   Object.entries(aliases).forEach(([key, value]) => {
-    console.log(`- ${key}\n ${value}\n`)
+    console.log(`- ${key}`)
   })
+  console.log()
+  process.exit(0)
+}
+
+// Muestra la ruta de una alias
+function showAliasPath(alias) {
+  if (!aliases[alias]) {
+    console.error(MESSAGES.aliasNotFound(alias))
+    process.exit(1)
+  }
+  console.log(
+    `\nRuta al archivo de ${alias}:\n ->`,
+    aliases[alias].slice(1) + '\n'
+  )
   process.exit(0)
 }
 
@@ -40,4 +54,5 @@ async function executeAlias(alias) {
 const args = process.argv.slice(2)
 if (args.length === 0) showHelp()
 if (args[0] === 'alias') listAliases()
+if (args[0] === 'path') showAliasPath(args[1])
 executeAlias(args[0])

@@ -44,6 +44,7 @@ async function executeAlias(alias) {
 
   try {
     await import(pathToFileURL(filePath))
+    console.log()
   } catch (error) {
     console.error(`Error al ejecutar el archivo: ${error.message}`)
     process.exit(1)

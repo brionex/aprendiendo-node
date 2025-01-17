@@ -1,10 +1,13 @@
 export const aliases = {
   // Codigo
-  globalThis: './codigo/1.variable-globalThis/main.js',
-  commonJs: './codigo/2.sistema-de-modulos/cjs/main.cjs',
-  esModules: './codigo/2.sistema-de-modulos/mjs/main.js',
-  os: './codigo/3.os/main.js',
+  'global-this': './codigo/1.global-this.js',
+  cjs: './codigo/2.module-system/main-cjs.cjs',
+  mjs: './codigo/2.module-system/main-mjs.js',
+  os: './codigo/3.os.js',
+  'fs-stat': './codigo/4.fs/stat.js',
+  'fs-sync': './codigo/4.fs/fs-sync.js',
+  'fs-async': './codigo/4.fs/fs-async.js',
 
   // Snippets
-  inputConsole: './snnipets/input-console.js',
+  'input-console': './snnipets/input-console.js',
 }

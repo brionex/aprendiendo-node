@@ -10,7 +10,7 @@ export const aliases = {
   'async-callback': './codigo/5.async-code/async-callback.js',
   'async-sequential': './codigo/5.async-code/async-sequential.js',
   'async-parallel': './codigo/5.async-code/async-parallel.js',
-  'path': './codigo/6.path/path.js',
+  path: './codigo/6.path/path.js',
 
   // Snippets
   'input-console': './snnipets/input-console.js',

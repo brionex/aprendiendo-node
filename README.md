@@ -32,13 +32,13 @@ Este repositorio contiene ejemplos de código creados mientras aprendo y practic
 
    ```bash
    // Ejecuta el archivo de un ejercicio
-   node main.mjs <alias>
+   node main.js run <alias>
 
    // Ver la lista de alias de los ejercicios
-   node main.mjs alias
+   node main.js alias
 
    // Ver la ruta del archivo del ejercicio
-   node main.mjs path <alias>
+   node main.js path <alias>
    ```
 
 ## Requisitos

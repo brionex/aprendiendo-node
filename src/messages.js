@@ -5,7 +5,7 @@ export const MESSAGES = {
     ['gray', 'white', 'yellow', 'reset', 'yellow', 'reset', 'yellow'],
     '\n💡 %%Uso:\n' +
       '\n%%Ejecuta el archivo de un alias:\n' +
-      '-> %%node main.js <alias>%%\n\n' +
+      '-> %%node main.js run <alias>%%\n\n' +
       'Ver la lista de alias:\n' +
       '-> %%node main.js alias%%\n\n' +
       'Ver la ruta de un alias:\n' +

@@ -19,7 +19,7 @@ export const MESSAGES = {
       ['red', 'bold', 'reset', 'cyan', 'reset'],
       '\n❌ Alias no encontrado: %%%%' +
         alias +
-        '%%\nUsa %%node main.mjs alias%% para ver la lista de alias disponibles.\n'
+        '%%\nUsa %%node main.js alias%% para ver la lista de alias disponibles.\n'
     ),
 
   executingAlias: (alias, path) =>

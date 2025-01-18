@@ -1,34 +1,27 @@
-import { applyColor } from './colors.js'
+import { colorAll } from './colors.js'
 
-export const MESSAGES = {
-  usage: applyColor(
-    ['gray', 'white', 'yellow', 'reset', 'yellow', 'reset', 'yellow'],
-    '\n💡 %%Uso:\n' +
-      '\n%%Ejecuta el archivo de un alias:\n' +
-      '-> %%node main.js run <alias>%%\n\n' +
-      'Ver la lista de alias:\n' +
-      '-> %%node main.js alias%%\n\n' +
-      'Ver la ruta de un alias:\n' +
-      '-> %%node main.js path <alias>\n'
-  ),
+export const MESSAGES = colorAll({
+  usage:
+    '\n💡 @gry/Uso:\n' +
+    '\n@wht/Ejecutar un archivo:\n' +
+    '-> @ylw/node cli.js run <file-name>\n\n' +
+    '@wht/Ver la lista de archivos:\n' +
+    '-> @ylw/node cli.js files\n\n' +
+    '@wht/Ver la ruta de un archivo:\n' +
+    '-> @ylw/node cli.js path <file-name>\n',
 
-  aliasList: applyColor(['gray'], '\n🗂️ %%Alias:\n'),
+  filesTitle: '\n🗂️ @gry/Archivos:\n',
 
-  aliasNotFound: (alias) =>
-    applyColor(
-      ['red', 'bold', 'reset', 'cyan', 'reset'],
-      '\n❌ Alias no encontrado: %%%%' +
-        alias +
-        '%%\nUsa %%node main.js alias%% para ver la lista de alias disponibles.\n'
-    ),
+  fileNoExist:
+    '\n❌ Archivo @cyn/{fileName} @wht/no encontrado.\n' +
+    '\nUsa @ylw/node cli.js files @wht/para ver la lista de archivos.\n',
 
-  executingAlias: (alias, path) =>
-    applyColor(
-      ['green', 'bold', 'reset', 'yellow', 'bold'],
-      '\n✅ Ejecutando alias: %%%%' +
-        alias +
-        '%%\n\n🔗 Ruta del archivo:\n' +
-        path +
-        '\n\n%%%%Output:\n'
-    ),
-}
+  filePath: '\n📁 Ruta del archivo: @cyn/{fileName}\n @wht/->',
+
+  executingFile:
+    '\n✅ Ejecutando archivo: @ylw/{fileName}' +
+    '\n🔗 @wht/Ruta: @cyn/{filePath}\n' +
+    '\n @ylw/@bld/Output:\n',
+
+  runTimeError: '❌ @red/@bld/Error al ejecutar el archivo.@wht/\n -> {err}\n',
+})

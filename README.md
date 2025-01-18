@@ -31,14 +31,14 @@ Este repositorio contiene ejemplos de código creados mientras aprendo y practic
 3. Ejecuta los ejemplos:
 
    ```bash
-   // Ejecuta el archivo de un ejercicio
-   node main.js run <alias>
+   // Ejecutar un archivo
+   node cli.js run <file-name>
 
-   // Ver la lista de alias de los ejercicios
-   node main.js alias
+   // Ver la lista de archivos
+   node cli.js files
 
-   // Ver la ruta del archivo del ejercicio
-   node main.js path <alias>
+   // Ver la ruta de un archivo
+   node cli.js path <file-name>
    ```
 
 ## Requisitos

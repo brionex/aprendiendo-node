@@ -16,5 +16,8 @@
   },
   "eslintConfig": {
     "extends": "standard"
+  },
+  "dependencies": {
+    "picocolors": "1.1.1"
   }
 }

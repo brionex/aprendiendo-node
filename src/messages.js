@@ -26,5 +26,5 @@ export const MESSAGES = colorAll({
   runTimeError:
     '❌ @red/@bld/Error al ejecutar el archivo.@wht/' +
     '\n -> {err}' +
-    '\n\n @yellow/Detalle: \n\n{detail}\n'
+    '\n\n @ylw/Detalle: \n\n{detail}\n'
 })

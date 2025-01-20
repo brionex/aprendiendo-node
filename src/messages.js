@@ -23,5 +23,8 @@ export const MESSAGES = colorAll({
     '\n🔗 @wht/Ruta: @cyn/{filePath}\n' +
     '\n @ylw/@bld/Output:\n',
 
-  runTimeError: '❌ @red/@bld/Error al ejecutar el archivo.@wht/\n -> {err}\n',
+  runTimeError:
+    '❌ @red/@bld/Error al ejecutar el archivo.@wht/' +
+    '\n -> {err}' +
+    '\n\n @yellow/Detalle: \n\n{detail}\n'
 })

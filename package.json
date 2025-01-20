@@ -1,3 +1,20 @@
 {
-  "type": "module"
+  "name": "aprendiendo-node",
+  "version": "1.0.0",
+  "keywords": [
+    "node",
+    "javascript",
+    "nodejs",
+    "es6"
+  ],
+  "description": "Ejemplos de código creados mientras aprendo y practicando Node.js",
+  "author": "Brionex",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "standard": "17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
 }

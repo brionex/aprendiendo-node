@@ -18,11 +18,11 @@ const colors = {
   bgm: '\x1b[45m', // Background Magenta
   bgc: '\x1b[46m', // Background Cyan
   bgw: '\x1b[47m', // Background White
-  gry: '\x1b[90m', // Gray
+  gry: '\x1b[90m' // Gray
 }
 
 // Colorear una cadena de texto
-export function color(text) {
+export function color (text) {
   if (typeof text !== 'string') {
     throw new Error('El segundo argumento debe ser una cadena de texto.')
   }
@@ -31,7 +31,7 @@ export function color(text) {
 }
 
 // Colorear un array de strings o un objeto con claves y valores
-export function colorAll(texts) {
+export function colorAll (texts) {
   if (Array.isArray(texts)) {
     return texts.map((text) =>
       typeof text === 'string' ? replaceColor(text) : text
@@ -53,7 +53,7 @@ export function colorAll(texts) {
 }
 
 // Reemplazar el patron de color con el ascii de color correspondiente
-function replaceColor(text) {
+function replaceColor (text) {
   const regex = /@([\w-]+)\//g
 
   return (

@@ -19,7 +19,7 @@ console.log(`Detalles de la Versión: ${os.version()}`)
 console.log(`Número de CPUs: ${os.cpus().length}`)
 
 // Información de los CPUs (núcleos, modelo, velocidad)
-console.log(`CPU(s):`, os.cpus())
+console.log('CPU(s):', os.cpus())
 
 // Memoria total (en GB)
 console.log(
@@ -43,10 +43,10 @@ console.log(`Directorio Principal: ${os.homedir()}`)
 console.log(`Directorio Temporal: ${os.tmpdir()}`)
 
 // Información del usuario actual (nombre, shell, etc.)
-console.log(`Información del Usuario:`, os.userInfo())
+console.log('Información del Usuario:', os.userInfo())
 
 // Interfaces de red (detalles de red e IPs)
-console.log(`Interfaces de Red:`, os.networkInterfaces())
+console.log('Interfaces de Red:', os.networkInterfaces())
 
 // Endianness de la CPU
 console.log(`Endianness de la CPU: ${os.endianness()}`)
@@ -62,7 +62,7 @@ console.log(`Nueva prioridad del proceso: ${os.getPriority()}`)
 if (os.platform() !== 'win32') {
   console.log(`Carga Promedio: ${os.loadavg()}`)
 } else {
-  console.log(`Carga Promedio: No disponible en Windows`)
+  console.log('Carga Promedio: No disponible en Windows')
 }
 
 // Señales de fin de línea (dependen del sistema)

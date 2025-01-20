@@ -3,9 +3,8 @@
   Utiliza `import` y `export` para importar y exportar funciones y variables.
 */
 
-import esModulesDefault from './esModules.js'
+import esModulesDefault, { message, message2 } from './esModules.js'
 import * as esModules from './esModules.js'
-import { message, message2 } from './esModules.js'
 
 // Método de importación por defecto
 esModulesDefault.message()

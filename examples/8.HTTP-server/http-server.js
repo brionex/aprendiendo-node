@@ -1,4 +1,7 @@
 import http from 'node:http'
+import { findFreePort } from './find-free-port.js'
+
+const port = await findFreePort(3000)
 
 const server = http.createServer((req, res) => {
   console.log('request received')
@@ -6,6 +9,6 @@ const server = http.createServer((req, res) => {
   res.end('Hello World')
 })
 
-server.listen(3000, () => {
-  console.log('server is listening on port 3000')
+server.listen(port, () => {
+  console.log(`Server running: http://localhost:${port}`)
 })

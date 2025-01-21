@@ -15,5 +15,6 @@ export const filesMap = {
   'async-parallel': path.normalize('examples/5.async-code/async-parallel.js'),
   path: path.normalize('examples/6.path/path.js'),
   'exercise-ls': path.normalize('examples/7.ls/ls.js'),
-  'http-server': path.normalize('examples/8.HTTP-server/http-server.js')
+  'http-server': path.normalize('examples/8.HTTP-server/http-server.js'),
+  'free-port': path.normalize('examples/8.HTTP-server/find-free-port.js')
 }

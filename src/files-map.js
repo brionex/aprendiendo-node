@@ -18,5 +18,7 @@ export const filesMap = {
   'http-server': path.normalize('examples/8.HTTP-server/http-server.js'),
   'free-port': path.normalize('examples/8.HTTP-server/find-free-port.js'),
   'web-server': path.normalize('examples/8.HTTP-server/web-server.js'),
-  routing: path.normalize('examples/8.HTTP-server/routing.js')
+  routing: path.normalize('examples/8.HTTP-server/routing.js'),
+  express: path.normalize('examples/9.express/express.js'),
+  'notes-app': path.normalize('examples/9.express/notes-app.js')
 }

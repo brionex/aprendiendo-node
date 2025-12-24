@@ -8,7 +8,7 @@ export const ANSIColors = {
   },
 
   fg: {
-    black: '\x1b[38;5;242m',
+    black: '\x1b[38;5;238m',
     red: '\x1b[38;5;203m',
     green: '\x1b[38;5;114m',
     yellow: '\x1b[38;5;186m',
@@ -20,7 +20,7 @@ export const ANSIColors = {
   },
 
   bg: {
-    black: '\x1b[48;5;236m',
+    black: '\x1b[48;5;235m',
     red: '\x1b[48;5;52m',
     green: '\x1b[48;5;22m',
     yellow: '\x1b[48;5;58m',
@@ -36,48 +36,50 @@ type StyleKeys = keyof typeof ANSIColors.style
 type FgKeys = keyof typeof ANSIColors.fg
 type BgKeys = keyof typeof ANSIColors.bg
 type BgMethod<K extends string> = `bg${Capitalize<K>}`
-type BgMethods = BgMethod<BgKeys>
 
 export type ColorApi = { [K in StyleKeys]: ColorApi } & {
   [K in FgKeys]: ColorApi
-} & { [K in BgMethods]: ColorApi } & {
-  str: string
-}
+} & { [K in BgMethod<BgKeys>]: ColorApi } & { str: string }
 
-// Color function implementation
+// Color builder
 export function color(text: string): ColorApi {
   if (typeof text !== 'string') {
-    console.log(color('COLOR ERROR:').red.str)
-    throw new TypeError('El argumento de color() debe ser de tipo string.')
+    throw new TypeError('El argumento de color() debe ser string.')
   }
 
-  let open = ''
-  const close = ANSIColors.style.reset
+  const codes: string[] = []
+  const reset = ANSIColors.style.reset
 
   const api = {} as ColorApi
 
-  for (const entryGroups of Object.entries(ANSIColors)) {
-    const [groupKey, colors] = entryGroups
+  const define = (key: string, value: string) => {
+    Object.defineProperty(api, key, {
+      get() {
+        codes.push(value)
+        return api
+      }
+    })
+  }
 
-    for (const entryColor of Object.entries(colors)) {
-      const [colorKey, value] = entryColor
-      const key =
-        groupKey === 'bg'
-          ? `bg${colorKey[0].toUpperCase()}${colorKey.slice(1)}`
-          : colorKey
+  // styles
+  for (const [key, value] of Object.entries(ANSIColors.style)) {
+    define(key, value)
+  }
 
-      Object.defineProperty(api, key, {
-        get() {
-          open += value
-          return api
-        }
-      })
-    }
+  // foreground
+  for (const [key, value] of Object.entries(ANSIColors.fg)) {
+    define(key, value)
+  }
+
+  // background
+  for (const [key, value] of Object.entries(ANSIColors.bg)) {
+    const method = `bg${key[0].toUpperCase()}${key.slice(1)}`
+    define(method, value)
   }
 
   Object.defineProperty(api, 'str', {
     get() {
-      return `${open}${text}${close}`
+      return `${codes.join('')}${text}${reset}`
     }
   })
 

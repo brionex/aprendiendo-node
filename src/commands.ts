@@ -10,8 +10,8 @@ export function showHelp() {
 // Lista los nombres de los ejemplos.
 export function exampleList() {
   console.log(MESSAGES.examplesTitle)
-  Object.keys(exampleFolders).forEach((key) => {
-    console.log(` - ${key}`)
+  Object.entries(exampleFolders).forEach(([key, value]) => {
+    console.log(MESSAGES.exampleItemList(key, value))
   })
   console.log()
 }
@@ -37,12 +37,15 @@ export async function runExample(name: string) {
 
   console.log(MESSAGES.executingExample(name, filePath))
 
-  const child = spawn('node', [filePath])
+  const child = spawn(process.execPath, [filePath], {
+    stdio: ['inherit', 'pipe', 'pipe']
+  })
 
   child.stdout.on('data', (data) => console.log(data.toString().trim()))
   child.stderr.on('data', (data) =>
     console.log(MESSAGES.outputError(data.toString().trim()))
   )
 
+  child.on('error', (err) => console.log(MESSAGES.outputError(err.message)))
   child.on('exit', () => console.log(MESSAGES.runFinished))
 }

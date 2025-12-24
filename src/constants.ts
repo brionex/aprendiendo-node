@@ -1,50 +1,60 @@
 import url from 'node:url'
 import { color } from './colors.ts'
 
+// Ejemplos
 export const exampleFolders = {
-  'global-this': '1.global-this',
-  'module-system': '2.module-system',
-  'os-module': '3.os',
-  async: '4.asynchronous',
-  'path-module': '5.path-module',
-  'fs-module': '6.fs-module',
-  'ls-exercise': '7.ls-exercise',
-  'http-server': '8.http-server',
-  'express-web': '9.express-web'
-}
+  globals: '01-global-runtime',
+  modules: '02-module-system',
+  os: '03-operating-system',
+  async: '04-asynchronous-model',
+  path: '05-path-handling',
+  fs: '06-file-system',
+  ls: '07-cli-ls-exercise',
+  http: '08-http-server',
+  express: '09-express-framework'
+} as const
 
-const cliError = color('CLI ERROR:').red.str
+// Helpers
+const cliErrorLabel = color('CLI ERROR:').red.str
+const stripOrderPrefix = (folder: string) => folder.replace(/^\d+-/, '')
 
+// Mensajes
 const commandNotFound = (command: string) => `
-${cliError}
+${cliErrorLabel}
   El comando ${color(command).yellow.str} no existe.
   Ejecuta ${
-    color('node cli.ts').cyan.str
-  } para listar los comandos disponibles. 
+    color('node cli.ts list').cyan.str
+  } para ver los comandos disponibles.
 `
 
 const usage = `
 ${color('Uso:').gray.str}
-  ${color('node cli.ts <comando> <argumentos>').cyan.str}
+  ${color('node cli.ts').cyan.str} ${color('<comando>').yellow.str} ${
+  color('<argumentos>').gray.str
+}
 
-${color('Comandos:').gray.str}
-  ${color('list').yellow.str}   Lista todos los nombres de ejemplos.
-  ${color('run').yellow.str}    Ejecuta un ejemplo. <nombre>
-
+${color('Comandos disponibles:').gray.str}
+  ${color('list').yellow.str}             Lista todos los ejemplos.
+  ${color('run').yellow.str} ${
+  color('<nombre>').gray.str
+}     Ejecuta un ejemplo.
 `
 
 const examplesTitle = `
 ${color('Lista de ejemplos:').gray.str}
 `
 
+const exampleItemList = (name: string, folder: string) =>
+  `- ${name.padEnd(10)} ${color(stripOrderPrefix(folder)).gray.str}`
+
 const missingExampleName = `
-${cliError}
-  Debes pasar un argumento al comando: 
+${cliErrorLabel}
+  Debes pasar un nombre al comando:
   ${color('run').yellow.str} ${color('<nombre>').gray.str}
 `
 
 const exampleNotExist = (name: string) => `
-${cliError}
+${cliErrorLabel}
   El nombre ${color(name).yellow.str} no existe en la lista de ejemplos.
   Ejecuta ${color('node cli.ts list').cyan.str} para listar los ejemplos.
 `
@@ -62,13 +72,15 @@ ${color(err).red.str}
 `
 
 const runFinished = `
-${color('Fin de ejecución.').green.str}
+${color('Fin de ejecución').gray.bold.str}
 `
 
+// Exportación de los mensajes
 export const MESSAGES = {
   commandNotFound,
   usage,
   examplesTitle,
+  exampleItemList,
   missingExampleName,
   exampleNotExist,
   executingExample,

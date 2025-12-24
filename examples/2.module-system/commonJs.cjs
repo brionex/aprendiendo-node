@@ -1,12 +1,14 @@
-function message () {
-  console.log('Hello from message() - commonJs.js!')
+const sistema = 'CommonJS'
+
+function cjsMessage() {
+  console.log('Mensaje desde un modulo CommonJS.')
 }
 
-function message2 () {
-  console.log('Hello from message2() - commonJs.js!')
-}
+// Se usa module.exports para exponer el modulo y se exporta como 'default',
+// lo que hace que debas hacer una importación nombrada.
+// import nombreModulo from "../ruta/archivo.cjs"
 
 module.exports = {
-  message,
-  message2
+  sistema,
+  cjsMessage
 }

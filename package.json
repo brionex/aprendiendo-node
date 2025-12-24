@@ -7,15 +7,20 @@
     "nodejs",
     "es6"
   ],
-  "description": "Ejemplos de código creados mientras aprendo y practicando Node.js",
+  "description": "Ejemplos de código creados mientras aprendo y practico Node.js",
   "author": "Brionex",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "standard": "17.1.2"
+    "@types/node": "25.0.1",
+    "standard": "17.1.2",
+    "typescript": "5.9.3"
   },
   "eslintConfig": {
-    "extends": "standard"
+    "extends": "standard",
+    "rules": {
+      "space-before-function-paren": "off"
+    }
   },
   "dependencies": {
     "express": "4.21.2",

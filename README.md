@@ -10,7 +10,7 @@ Este repositorio contiene ejemplos de código creados mientras aprendo y practic
 
    - Uso de la variable 'globalThis'.
 
-2. **Sistema de Modulos**
+2. **Sistema de Módulos**
    - CommonJS
    - ECMAScript Modules (ESM)
 
@@ -28,9 +28,12 @@ Este repositorio contiene ejemplos de código creados mientras aprendo y practic
    npm install
    ```
 
-3. Ejecuta los ejemplos:
+3. Comandos del `cli` del proyecto:
 
    ```bash
+   // Ver opciones de ayuda
+   node cli.js
+
    // Ejecutar un archivo
    node cli.js run <file-name>
 

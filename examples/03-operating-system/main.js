@@ -13,7 +13,7 @@ console.log(`
 - Sistema operativo: ${os.type()}
 - Plataforma: ${os.platform()}
 - Arquitectura: ${os.arch()}
-- Versión del kernel / sistema: ${os.release()}
+- Versión del kernel/sistema: ${os.release()}
 - Detalles de la versión: ${os.version()}
 
 - Número de CPUs: ${os.cpus().length}

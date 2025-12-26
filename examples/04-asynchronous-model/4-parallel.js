@@ -4,7 +4,7 @@ import { server } from './_server.js'
 // Todas las promesas se lanzan al mismo tiempo y no esperan unas a otras.
 
 export function parallel() {
-  console.log('Ejecución asíncrona con promesas en paralelo.')
+  console.log('Ejecución asíncrona con promesas en paralelo.\n')
 
   // --------------------------------------------
   // Usando Promise.all

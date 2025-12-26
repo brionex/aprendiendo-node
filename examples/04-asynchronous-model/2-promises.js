@@ -1,7 +1,7 @@
 import { server } from './_server.js'
 
 export async function promises() {
-  console.log('Ejecución asíncrona con promesas.')
+  console.log('Ejecución asíncrona con promesas.\n')
 
   // --------------------------------------------
   // Usando then / catch

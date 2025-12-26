@@ -18,10 +18,10 @@ export function server(id, callback) {
   const responseTime = Math.floor(Math.random() * 2000) + 1000
   const isSuccess = Math.random() > 0.5
 
-  const messageSuccess = `- Recibido ${id}: Success`
-  const messageError = `- Recibido ${id}: Error`
+  const messageSuccess = `-> Recibido ${id}: Success`
+  const messageError = `-> Recibido ${id}: Error`
 
-  console.log(`- Enviado: ${id}`)
+  console.log(`<- Enviado ${id}`)
 
   // Uso con callback
   if (typeof callback === 'function') {

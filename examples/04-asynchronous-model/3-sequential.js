@@ -4,7 +4,7 @@ import { server } from './_server.js'
 // Cada petición espera a que la anterior termine antes de ejecutarse.
 
 export async function sequential() {
-  console.log('Ejecución asíncrona con promesas de manera secuencial.')
+  console.log('Ejecución asíncrona con promesas de manera secuencial.\n')
 
   // --------------------------------------------
   // Ejecución secuencial con control de errores

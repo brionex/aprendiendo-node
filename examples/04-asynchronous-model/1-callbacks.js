@@ -5,7 +5,7 @@ import { server } from './_server.js'
 // no del orden en que se realizan las llamadas.
 
 export function callbacks() {
-  console.log('Ejecución asíncrona con callbacks.')
+  console.log('Ejecución asíncrona con callbacks.\n')
 
   server(1, (err, res) => {
     console.log(err ?? res)

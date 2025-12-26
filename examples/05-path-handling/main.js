@@ -1,44 +1,38 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-// Con este modulo puedes manipular rutas de archivos y directorios.
+// Este modulo te permite manipular rutas de archivos y directorios.
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
-const joinPath = path.join(dirname, 'assets', 'image.png')
-const basename = path.basename(filename)
-const extname = path.extname(filename)
-const resolvedPath = path.resolve('assets', 'image.png')
+// Obtener la ruta del archivo actual en forma de url y convertirla a path.
+const filePath = fileURLToPath(import.meta.url)
+
+const folderPath = path.dirname(filePath)
+const joinPath = path.join('assets', 'images', 'photo.png')
+const basename = path.basename(filePath)
+const extname = path.extname(filePath)
+const resolvedPath = path.resolve(joinPath)
 const normalizedPath = path.normalize(
-  '/users/john/../jane/./documents//file.txt'
+  '/users\\john/../jane/./documents//file.txt'
 )
-const parsedPath = path.parse(filename)
-const formattedPath = path.format(parsedPath)
 const separator = path.sep
 const delimiter = path.delimiter
 
 console.log(`
-Ejemplos de uso del modulo path de nodeJS
-
-Ruta del archivo actual: ${filename}
-
-Ruta del directorio actual: ${dirname}
-
-Ruta combinada: ${joinPath}
-
-Nombre del archivo: ${basename}
-
-Extensión del archivo: ${extname}
-
-Ruta absoluta resuelta: ${resolvedPath}
-
-Ruta normalizada: ${normalizedPath}
-
-Ruta parseada: ${parsedPath}
-
-Ruta reconstruida: ${formattedPath}
-
-Separador de rutas: ${separator}
-  
-Separador de variables PATH: ${delimiter}
+  - Ruta del archivo actual: ${filePath}
+- Ruta del directorio actual: ${folderPath}
+- Ruta compuesta: ${joinPath}
+- Nombre del archivo: ${basename}
+- Extensión del archivo: ${extname}
+- Ruta absoluta resuelta: ${resolvedPath}
+- Ruta normalizada: ${normalizedPath}
+- Separador de rutas: ${separator}
+- Separador de variables PATH: ${delimiter}
 `)
+
+// Obtienes un objeto con información sobre la ruta.
+const parsedPath = path.parse(filePath)
+console.log('- Ruta parseada:', parsedPath)
+
+// Obtienes una ruta formateada a partir de un objeto de tipo path.
+const formattedPath = path.format(parsedPath)
+console.log('- Ruta formateada:', formattedPath)

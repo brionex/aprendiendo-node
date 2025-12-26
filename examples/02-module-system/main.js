@@ -1,22 +1,32 @@
-// ESM: ES Modules es el sistema estándar para importar modules usando import/export
-// CommonJS: Es el sistema original/antiguo de node para trabajar con módulos usando required.
+// SISTEMAS DE MÓDULOS EN NODE.JS
 
-// NOTA: Actualmente no se usa CommonJS, su uso se da solo en proyectos antiguos.
+// ESM (ECMAScript Modules) es el sistema estándar de JavaScript moderno
+// para importar y exportar módulos usando `import` / `export`.
+//
+// CommonJS (CJS) es el sistema de módulos original de Node.js,
+// que utiliza `require` y `module.exports`.
+//
+// Ambos sistemas coexisten actualmente en Node.js, pero ESM es el
+// enfoque recomendado para nuevos proyectos.
 
-import { mjsMessage } from './esModules.mjs' // Importación con ESM
-import cjsModule from './commonJs.cjs' // Importación de modulo CommonJS con ESM
+import cjsModule from './1-commonJs.cjs' // Módulo CommonJS importado desde ESM
+import { mjsMessage } from './2-esModules.mjs' // Módulo ESM
 
-mjsMessage()
 cjsModule.cjsMessage()
+mjsMessage()
 
-// No se puede usar required cuando se usa el type="module"
-// Tira un error al intentar importar
+// IMPORTANTE:
+//
+// Cuando un proyecto usa `"type": "module"` en package.json,
+// `require` no está disponible de forma directa.
+// Intentar usarlo provoca un error.
+//
+// const cjsModule = require('./commonJs.cjs'); // Error
+//
+// Si necesitas usar `require` dentro de un módulo ESM,
+// puedes crearlo explícitamente usando `createRequire`:
 
-// const cjsModule = require('./commonJs.cjs')
-
-// Si requieres usar un required puedes crear uno:
-
-// import { createRequire } from 'node:module'
-// const require = createRequire(import.meta.url)
-// const cjsModule2 = require('./commonJs.cjs')
-// cjsModule2.cjsMessage()
+// import { createRequire } from 'node:module';
+// const require = createRequire(import.meta.url);
+// const cjsModule2 = require('./commonJs.cjs');
+// cjsModule2.cjsMessage();

@@ -1,34 +1,40 @@
 /*
-  Esta función simula una petición a un servidor
+  Esta función simula una petición a un servidor.
 
-  Con callback:
-    - server(id, (err, res) => {})
+  Puede usarse de dos formas:
 
-  Como promesa:
-    - server(id).then((res) => {}).catch((err) => {})
-    - const res = await server().catch((err) => {})
+  1) Con callback (estilo clásico):
+     server(id, (err, res) => { ... })
 
+  2) Como promesa / async-await:
+     server(id)
+       .then(res => { ... })
+       .catch(err => { ... })
+
+     const res = await server(id)
 */
 
-export function server(id, fn) {
+export function server(id, callback) {
   const responseTime = Math.floor(Math.random() * 2000) + 1000
-  const successProbability = Math.random() > 0.5
+  const isSuccess = Math.random() > 0.5
 
   const messageSuccess = `- Recibido ${id}: Success`
   const messageError = `- Recibido ${id}: Error`
 
   console.log(`- Enviado: ${id}`)
 
-  if (typeof fn === 'function') {
+  // Uso con callback
+  if (typeof callback === 'function') {
     setTimeout(() => {
-      successProbability ? fn(null, messageSuccess) : fn(messageError, null)
+      isSuccess ? callback(null, messageSuccess) : callback(messageError, null)
     }, responseTime)
     return
   }
 
+  // Uso con promesa
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      successProbability ? resolve(messageSuccess) : reject(messageError)
+      isSuccess ? resolve(messageSuccess) : reject(messageError)
     }, responseTime)
   })
 }

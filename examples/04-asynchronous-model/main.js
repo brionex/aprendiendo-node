@@ -4,15 +4,28 @@ import { sequential } from './3-sequential.js'
 import { parallel } from './4-parallel.js'
 
 /*
-  Cuando se trabaja con código asíncrono se manejan los siguientes conceptos:
+  Cuando se trabaja con código asíncrono en JavaScript se manejan
+  los siguientes conceptos:
 
-  - callbacks: Función que se llama dentro de otra función.
-  - async/await: Concierten el ámbito de una funciona en  asíncrono.
-  - Promesa: Objeto que representa la realización de una operación asíncrona.
-  - then/catch: Métodos para resolver una promesa.
+  - Callback:
+    Función que se pasa como argumento y se ejecuta
+    cuando una operación asíncrona termina.
 
-  NOTA: Solo ejecuta una función a la vez, para ver cada proceso de forma correcta.
+  - Promesa:
+    Objeto que representa el resultado futuro de una
+    operación asíncrona (resuelta o rechazada).
+
+  - then / catch:
+    Métodos para manejar el resultado o error de una promesa.
+
+  - async / await:
+    Sintaxis que permite escribir código asíncrono
+    con apariencia secuencial usando promesas.
 */
+
+// NOTA:
+// Ejecuta una sola función a la vez para observar
+// claramente el comportamiento de cada enfoque.
 
 callbacks()
 // promises()

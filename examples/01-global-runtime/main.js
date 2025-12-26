@@ -1,12 +1,15 @@
 // OBJETO GLOBAL
 
-// La variable globalThis proporciona una forma estándar de acceder al objeto global,
-// independientemente del entorno en el que se esté ejecutando el código.
+// globalThis es una referencia estándar al objeto global del entorno de ejecución.
+// Permite acceder al objeto global sin depender de si el código se ejecuta
+// en un navegador o en Node.js.
+//
+// - En navegadores, globalThis apunta al objeto global `window`.
+// - En Node.js, globalThis apunta al objeto global `global`.
+//
+// Esto evita usar condiciones o nombres específicos del entorno.
 
-// - En Node.js, globalThis se refiere al objeto global de Node "global".
-// - En navegadores, globalThis se refiere al objeto "window".
+const entorno = typeof window !== 'undefined' ? 'Navegador' : 'Node.js'
 
-const entono = globalThis.window ? 'Navegador' : 'NodeJs'
-
-console.log(`Entorno: ${entono}`)
+console.log(`Entorno: ${entorno}`)
 console.log('Contenido de globalThis:', globalThis)

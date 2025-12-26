@@ -1,12 +1,15 @@
 import { server } from './_server.js'
 
-// Ejemplo asíncrono con promesa de manera asíncrona secuencial.
-// Esto significa que cada petición se ejecuta en el orden en el que se enviaron.
+// Ejecución asíncrona con promesas de forma secuencial.
+// Cada petición espera a que la anterior termine antes de ejecutarse.
 
 export async function sequential() {
   console.log('Ejecución asíncrona con promesas de manera secuencial.')
 
-  // Si una falla, da error y no espera que las demás se resuelvan.
+  // --------------------------------------------
+  // Ejecución secuencial con control de errores
+  // Si una falla, se interrumpe la secuencia
+  // --------------------------------------------
   try {
     const res = await server(1)
     console.log(res)
@@ -20,7 +23,10 @@ export async function sequential() {
     console.log(err)
   }
 
-  // Ejecutar todas aunque alguna petición falle.
+  // --------------------------------------------
+  // Ejecución secuencial sin interrumpir el flujo
+  // Cada error se maneja de forma individual
+  // --------------------------------------------
   const res4 = await server(4).catch((err) => console.log(err))
   if (res4) console.log(res4)
 

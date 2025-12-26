@@ -1,8 +1,8 @@
 import { server } from './_server.js'
 
-// Al usar callbacks en una operación asíncrona, los callbacks
-// se ejecutan dependiendo del orden de llegada o de quien se
-// resuelva primero y no en el orden en el que se han enviado.
+// Al usar callbacks en operaciones asíncronas, el orden de ejecución
+// depende del tiempo de resolución de cada operación,
+// no del orden en que se realizan las llamadas.
 
 export function callbacks() {
   console.log('Ejecución asíncrona con callbacks.')

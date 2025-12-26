@@ -41,9 +41,9 @@ export async function runExample(name: string) {
     stdio: ['inherit', 'pipe', 'pipe']
   })
 
-  child.stdout.on('data', (data) => console.log(data.toString().trim()))
+  child.stdout.on('data', (data) => process.stdout.write(data.toString()))
   child.stderr.on('data', (data) =>
-    console.log(MESSAGES.outputError(data.toString().trim()))
+    process.stderr.write(MESSAGES.outputError(data.toString()))
   )
 
   child.on('error', (err) => console.log(MESSAGES.outputError(err.message)))

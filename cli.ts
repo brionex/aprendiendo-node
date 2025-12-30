@@ -4,7 +4,8 @@ import { MESSAGES } from './src/constants.ts'
 function main() {
   const args = process.argv.slice(2)
   const command = args[0]
-  const commandArg = args[1]
+  const exampleName = args[1]
+  const exampleArg = args[2]
 
   if (!command) {
     showHelp()
@@ -17,7 +18,7 @@ function main() {
   }
 
   if (command === 'run') {
-    runExample(commandArg)
+    runExample(exampleName, exampleArg)
     return
   }
 

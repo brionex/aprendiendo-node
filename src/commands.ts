@@ -17,7 +17,7 @@ export function exampleList() {
 }
 
 // Ejecutar el archivo principal de un ejemplo.
-export async function runExample(name: string) {
+export async function runExample(name: string, arg: string) {
   if (!name) {
     console.log(MESSAGES.missingExampleName)
     return
@@ -37,7 +37,7 @@ export async function runExample(name: string) {
 
   console.log(MESSAGES.executingExample(name, filePath))
 
-  const child = spawn(process.execPath, [filePath], {
+  const child = spawn(process.execPath, [filePath, arg], {
     stdio: ['inherit', 'pipe', 'pipe']
   })
 

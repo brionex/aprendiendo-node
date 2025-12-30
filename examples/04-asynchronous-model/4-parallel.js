@@ -3,7 +3,7 @@ import { server } from './_server.js'
 // Ejecución asíncrona con promesas en paralelo.
 // Todas las promesas se lanzan al mismo tiempo y no esperan unas a otras.
 
-export function parallel() {
+export async function parallel() {
   console.log('Ejecución asíncrona con promesas en paralelo.\n')
 
   // --------------------------------------------
@@ -12,7 +12,7 @@ export function parallel() {
   // Se ejecutan todas en paralelo.
   // Si alguna falla, el catch captura el primer error,
   // y no se devuelven los resultados de las demás.
-  Promise.all([server(1), server(2), server(3)])
+  await Promise.all([server('1_A'), server('2_A'), server('3_A')])
     .then(([res1, res2, res3]) => {
       console.log(res1)
       console.log(res2)
@@ -25,7 +25,11 @@ export function parallel() {
   // --------------------------------------------
   // Se ejecutan todas en paralelo.
   // Se pueden manejar resultados y errores de manera individual.
-  Promise.allSettled([server(4), server(5), server(6)]).then((res) => {
+  await Promise.allSettled([
+    server('4_AS'),
+    server('5_AS'),
+    server('6_AS')
+  ]).then((res) => {
     res.forEach((item) => {
       if (item.status === 'fulfilled') {
         console.log(item.value)

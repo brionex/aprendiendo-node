@@ -19,7 +19,7 @@ export async function stat() {
 
   console.log('\nUsando el método "stat" del modulo "fs"\n')
 
-  console.log('-> Creando archivo y directorio de prueba')
+  console.log('-> Creando directorio')
   await fs.mkdir(folderPath, { recursive: true })
   console.log(`✔  Directorio creado: ${folderPath}\n`)
 
@@ -55,4 +55,9 @@ export async function stat() {
       `- Fecha de creación: ${statDir.birthtime.toLocaleString()}\n` +
       `- Última modificación: ${statDir.mtime.toLocaleString()}\n`
   )
+
+  // Eliminación del archivo y directorio de prueba
+  console.log('-> Eliminando archivo y directorio de prueba')
+  await fs.rm(folderPath, { recursive: true })
+  console.log('✔ Archivo y directorio eliminados.')
 }

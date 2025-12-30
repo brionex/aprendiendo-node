@@ -27,7 +27,10 @@ import { parallel } from './4-parallel.js'
 // Ejecuta una sola función a la vez para observar
 // claramente el comportamiento de cada enfoque.
 
-callbacks()
-// promises()
-// sequential()
-// parallel()
+const arg = process.argv[2]
+
+if (arg === '1') callbacks()
+else if (arg === '2') promises()
+else if (arg === '3') sequential()
+else if (arg === '4') parallel()
+else callbacks()

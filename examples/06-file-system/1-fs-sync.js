@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger.js'
 import path from 'node:path'
 import fs from 'node:fs'
 
@@ -26,13 +27,13 @@ function writeFile() {
   // Crea un archivo de forma síncrona.
   // La ejecución se bloquea hasta que la escritura finaliza.
 
-  console.log('-> Inicio: escritura de archivo')
+  console.log('-> Creando archivo')
 
   try {
     fs.writeFileSync(filePath, 'Texto dentro del archivo', 'utf-8')
-    console.log(`✔  Fin: archivo creado -> ${fileName}\n`)
+    logger.success(`✔  archivo creado -> ${fileName}\n`)
   } catch {
-    console.log('✖  Error en escritura\n')
+    logger.error('✖  Error en escritura\n')
   }
 }
 
@@ -43,20 +44,20 @@ function existsFile() {
   console.log('-> Comprobando existencia del archivo')
 
   const exists = fs.existsSync(filePath)
-  console.log(`✔  Resultado: ${exists}\n`)
+  logger.success(`✔  Resultado: ${exists}\n`)
 }
 
 function readFile() {
   // Lee el contenido del archivo de forma síncrona.
   // El programa se detiene hasta completar la lectura.
 
-  console.log('-> Inicio: lectura de archivo')
+  console.log('-> Leyendo archivo')
 
   try {
     const text = fs.readFileSync(filePath, 'utf-8')
-    console.log(`✔  Fin: contenido leído -> "${text}"\n`)
+    logger.success(`✔ Contenido leído -> "${text}"\n`)
   } catch {
-    console.log('✖  Error en lectura\n')
+    logger.error('✖  Error en lectura\n')
   }
 }
 
@@ -68,9 +69,9 @@ function createDir() {
 
   try {
     fs.mkdirSync(folderPath, { recursive: true })
-    console.log(`✔  Directorio creado: ${folderName}\n`)
+    logger.success(`✔  Directorio creado: ${folderName}\n`)
   } catch {
-    console.log('✖  Error al crear directorio\n')
+    logger.error('✖  Error al crear directorio\n')
   }
 }
 
@@ -82,9 +83,9 @@ function copyFile() {
 
   try {
     fs.copyFileSync(filePath, path.join(folderPath, copyFileName))
-    console.log(`✔  Archivo copiado a ${folderName}${copyFileName}\n`)
+    logger.success(`✔  Archivo copiado a ${folderName}${copyFileName}\n`)
   } catch {
-    console.log('✖  Error al copiar archivo\n')
+    logger.error('✖  Error al copiar archivo\n')
   }
 }
 
@@ -96,9 +97,9 @@ function moveFile() {
 
   try {
     fs.renameSync(filePath, path.join(folderPath, fileName))
-    console.log(`✔  Archivo movido a ${folderName}${fileName}\n`)
+    logger.success(`✔  Archivo movido a ${folderName}${fileName}\n`)
   } catch {
-    console.log('✖  Error al mover archivo\n')
+    logger.error('✖  Error al mover archivo\n')
   }
 }
 
@@ -109,9 +110,9 @@ function removeFile() {
 
   try {
     fs.unlinkSync(path.join(folderPath, fileName))
-    console.log(`✔  Archivo eliminado: ${folderName}${fileName}\n`)
+    logger.success(`✔  Archivo eliminado: ${folderName}${fileName}\n`)
   } catch {
-    console.log('✖  Error al eliminar archivo\n')
+    logger.error('✖  Error al eliminar archivo\n')
   }
 }
 
@@ -123,9 +124,9 @@ function removeDir() {
 
   try {
     fs.rmSync(folderPath, { recursive: true })
-    console.log(`✔  Directorio eliminado: ${folderName}\n`)
+    logger.success(`✔  Directorio eliminado: ${folderName}\n`)
   } catch {
-    console.log(`✖  Error al eliminar directorio ${folderName}\n`)
+    logger.error(`✖  Error al eliminar directorio ${folderName}\n`)
   }
 }
 

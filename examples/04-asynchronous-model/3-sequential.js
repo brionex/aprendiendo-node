@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger.js'
 import { server } from './_server.js'
 
 // Ejecución asíncrona con promesas de forma secuencial.
@@ -12,27 +13,39 @@ export async function sequential() {
   // --------------------------------------------
   try {
     const res = await server(1)
-    console.log(res)
+    logger.success(res)
 
     const res2 = await server(2)
-    console.log(res2)
+    logger.success(res2)
 
     const res3 = await server(3)
-    console.log(res3)
+    logger.success(res3)
   } catch (err) {
-    console.log(err)
+    logger.error(err)
   }
 
   // --------------------------------------------
   // Ejecución secuencial sin interrumpir el flujo
   // Cada error se maneja de forma individual
   // --------------------------------------------
-  const res4 = await server(4).catch((err) => console.log(err))
-  if (res4) console.log(res4)
+  try {
+    const res = await server(4)
+    logger.success(res)
+  } catch (err) {
+    logger.error(err)
+  }
 
-  const res5 = await server(5).catch((err) => console.log(err))
-  if (res5) console.log(res5)
+  try {
+    const res2 = await server(5)
+    logger.success(res2)
+  } catch (err) {
+    logger.error(err)
+  }
 
-  const res6 = await server(6).catch((err) => console.log(err))
-  if (res6) console.log(res6)
+  try {
+    const res3 = await server(6)
+    logger.success(res3)
+  } catch (err) {
+    logger.error(err)
+  }
 }

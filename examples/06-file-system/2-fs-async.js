@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger.js'
 import path from 'node:path'
 import fs from 'node:fs/promises'
 

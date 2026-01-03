@@ -10,7 +10,7 @@
 // Evita depender de nombres específicos del entorno.
 
 const entorno = typeof window !== 'undefined' ? 'Navegador' : 'Node.js'
-console.log(`Entorno: ${entorno}`)
+console.log('Entorno:', entorno)
 console.log('globalThis:', globalThis)
 
 // --------------------------------------------

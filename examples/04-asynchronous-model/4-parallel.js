@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger.js'
 import { server } from './_server.js'
 
 // Ejecución asíncrona con promesas en paralelo.
@@ -14,11 +15,11 @@ export async function parallel() {
   // y no se devuelven los resultados de las demás.
   await Promise.all([server('1_A'), server('2_A'), server('3_A')])
     .then(([res1, res2, res3]) => {
-      console.log(res1)
-      console.log(res2)
-      console.log(res3)
+      logger.success(res1)
+      logger.success(res2)
+      logger.success(res3)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => logger.error(err))
 
   // --------------------------------------------
   // Usando Promise.allSettled
@@ -32,9 +33,9 @@ export async function parallel() {
   ]).then((res) => {
     res.forEach((item) => {
       if (item.status === 'fulfilled') {
-        console.log(item.value)
+        logger.success(item.value)
       } else {
-        console.log(item.reason)
+        logger.error(item.reason)
       }
     })
   })

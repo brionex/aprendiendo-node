@@ -1,3 +1,4 @@
+import { logger } from '../../lib/logger.js'
 import { server } from './_server.js'
 
 export async function promises() {
@@ -10,17 +11,26 @@ export async function promises() {
   // El orden de las respuestas depende del tiempo de resolución,
   // no del orden en que se hacen las llamadas.
   server(1)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .then((res) => logger.success(res))
+    .catch((err) => logger.error(err))
 
   // --------------------------------------------
   // Usando async / await con .catch()
   // --------------------------------------------
-  // await solo puede usarse dentro de una función async.
-  // Aquí el error se maneja directamente en el .catch().
-  const res = await server(2).catch((err) => console.log(err))
-  if (res) {
-    console.log(res)
+  // No recomendado como patrón general.
+  // `.catch()` consume el error y evita que se propague.
+  // `res` puede quedar `undefined`.
+  //
+  // Úsalo SOLO para errores controlados
+  // (cuando el fallo es esperado y hay fallback claro).
+
+  const res = await server(2).catch((err) => {
+    logger.error(err)
+    return null
+  })
+
+  if (res !== null) {
+    logger.success(res)
   }
 
   // --------------------------------------------
@@ -28,8 +38,8 @@ export async function promises() {
   // --------------------------------------------
   try {
     const res2 = await server(3)
-    console.log(res2)
+    logger.success(res2)
   } catch (err) {
-    console.log(err)
+    logger.error(err)
   }
 }

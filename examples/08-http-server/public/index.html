@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servidor Web con Node.js</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="background">
+      <img src="./image.png" alt="background" />
+    </div>
+
+    <header class="header">
+      <h1>Servidor Web con Node.js</h1>
+      <p>Ejemplo práctico usando el módulo <code>http</code> sin frameworks</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <img
+          src="https://nodejs.org/static/images/logo.svg"
+          alt="Node.js logo"
+          loading="lazy"
+          class="logo"
+        />
+
+        <h2>¿Qué estás viendo?</h2>
+        <p>
+          Esta página está siendo servida directamente desde un servidor HTTP
+          creado con Node.js, sin Express ni librerías externas.
+        </p>
+
+        <ul>
+          <li>📡 Manejo manual de rutas</li>
+          <li>📄 Envío de HTML y CSS</li>
+          <li>⚙️ Control total del response</li>
+        </ul>
+      </section>
+
+      <section class="info">
+        <h3>Ruta actual</h3>
+        <p><code>/</code> (vista principal)</p>
+
+        <h3>Siguiente paso</h3>
+        <p>
+          Aprende a servir archivos estáticos, manejar errores 404 y entender
+          cómo funciona el ciclo request/response.
+        </p>
+      </section>
+
+      <section class="users">
+        <h2>Datos de usuarios</h2>
+
+        <div class="users-container">
+          <template class="user-card-template">
+            <article class="user-card">
+              <header class="user-header">
+                <img
+                  src="https://blog.syncfusion.com/wp-content/uploads/2018/08/image-605.png"
+                  alt="avatar"
+                  class="avatar"
+                />
+                <div>
+                  <h3 class="name"></h3>
+                  <p class="email"></p>
+                </div>
+              </header>
+
+              <div class="user-body">
+                <p class="field phone"></p>
+                <p class="field address"></p>
+              </div>
+            </article>
+          </template>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Node.js HTTP Server · Ejemplo educativo</p>
+    </footer>
+  </body>
+</html>

@@ -19,7 +19,7 @@ Este repositorio contiene ejemplos de código creados mientras aprendo y practic
 1. Clona este repositorio:
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone <url-del-repositorio> a
    ```
 
 2. Instala las dependencias necesarias:

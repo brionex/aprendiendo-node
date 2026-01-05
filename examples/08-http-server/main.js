@@ -1,6 +1,6 @@
-import { httpServer } from './01-http-server.js'
-import { routing } from './02-routing.js'
-import { webServer } from './03-web-server.js'
+import { httpServer } from './1-http-server.js'
+import { routing } from './2-routing.js'
+import { webServer } from './3-web-server.js'
 
 const arg = process.argv[2]
 

@@ -19,6 +19,23 @@ async function readFile(path, encoding = true) {
   }
 }
 
+async function NotFound(res) {
+  // ----------------------------------------
+  // Error 404 si no existe un endpoint
+  // ----------------------------------------
+  const page404 = await readFile(path.join(publicPath, '404.html'))
+  if (!page404) {
+    console.log('404.html no existe')
+    res.statusCode = 404
+    res.end('404 Not Found')
+    return
+  }
+
+  res.statusCode = 404
+  res.setHeader('Content-Type', 'text/html')
+  res.end(page404)
+}
+
 async function GETMethod(req, res) {
   const { method, url } = req
 
@@ -32,6 +49,7 @@ async function GETMethod(req, res) {
 
     if (index === null) {
       console.log('index.html no existe')
+      res.statusCode = 404
       res.end('404 Not Found')
       return
     }
@@ -96,26 +114,71 @@ async function GETMethod(req, res) {
     return
   }
 
-  // ----------------------------------------
-  // Error 404 si no existe un endpoint
-  // ----------------------------------------
-  const page404 = await readFile(path.join(publicPath, '404.html'))
-  if (!page404) {
-    console.log('404.html no existe')
-    res.end('404 Not Found')
+  NotFound(res)
+}
+
+async function POSTMethod(req, res) {
+  const { method, url } = req
+
+  console.log(`[${getTime()}] ${method} ${url}`)
+
+  if (url === '/users') {
+    const body = []
+
+    req.on('data', (chunk) => {
+      body.push(chunk)
+    })
+
+    req.on('end', async () => {
+      const data = Buffer.concat(body).toString()
+      const user = JSON.parse(data)
+
+      // No voy a escribir en el json de datos para no agregar cambios git.
+      // Solo voy a agregar el id y devolver el usuario.
+      const users = await readFile(path.join(publicPath, 'data.json'))
+
+      if (users === null) {
+        console.log('data.json no existe')
+        res.setHeader('Content-Type', 'text/plain')
+        res.statusCode = 404
+        res.end('404 Not Found')
+        return
+      }
+
+      const numUsers = JSON.parse(users).length
+      user.id = numUsers + 1
+
+      res.statusCode = 201
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify({ user }))
+    })
+
     return
   }
 
-  res.setHeader('Content-Type', 'text/html')
-  res.end(page404)
+  // ----------------------------------------
+  // Page 404
+  // ----------------------------------------
+  NotFound(res)
 }
 
 export async function webServer() {
   const port = await findFreePort(3000)
 
   const server = http.createServer(async (req, res) => {
-    if (req.method === 'GET') {
-      GETMethod(req, res)
+    try {
+      if (req.method === 'GET') {
+        GETMethod(req, res)
+      }
+
+      if (req.method === 'POST') {
+        POSTMethod(req, res)
+      }
+    } catch (err) {
+      console.log(err)
+      res.statusCode = 500
+      res.setHeader('Content-Type', 'text/plain')
+      res.end('500 Internal Server Error')
     }
   })
 

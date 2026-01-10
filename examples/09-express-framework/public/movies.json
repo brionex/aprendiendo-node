@@ -1,0 +1,202 @@
+[
+  {
+    "id": "a3b7c9f2-4f6b-4c6e-9f3a-1b2d8a7c6e10",
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "genre": ["Drama"],
+    "duration": 142,
+    "rating": 9.3,
+    "director": "Frank Darabont",
+    "cover": "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
+  },
+  {
+    "id": "c1e2f3a4-9b8d-4c7a-8e12-5f6a7b8c9d01",
+    "title": "The Godfather",
+    "year": 1972,
+    "genre": ["Crime", "Drama"],
+    "duration": 175,
+    "rating": 9.2,
+    "director": "Francis Ford Coppola",
+    "cover": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+  },
+  {
+    "id": "f9a1b2c3-7d6e-4b5a-9c8d-0e1f2a3b4c56",
+    "title": "The Dark Knight",
+    "year": 2008,
+    "genre": ["Action", "Crime", "Drama"],
+    "duration": 152,
+    "rating": 9.0,
+    "director": "Christopher Nolan",
+    "cover": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+  },
+  {
+    "id": "2d4c6e8a-1f3b-4a5d-9c7e-b0a1d2f3e456",
+    "title": "Pulp Fiction",
+    "year": 1994,
+    "genre": ["Crime", "Drama"],
+    "duration": 154,
+    "rating": 8.9,
+    "director": "Quentin Tarantino",
+    "cover": "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
+  },
+  {
+    "id": "8e7d6c5b-4a3f-4e2d-9c1b-a0f9e8d7c654",
+    "title": "Forrest Gump",
+    "year": 1994,
+    "genre": ["Drama", "Romance"],
+    "duration": 142,
+    "rating": 8.8,
+    "director": "Robert Zemeckis",
+    "cover": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg"
+  },
+  {
+    "id": "0a1b2c3d-4e5f-4a6b-8c9d-e0f1a2b3c456",
+    "title": "Inception",
+    "year": 2010,
+    "genre": ["Action", "Sci-Fi"],
+    "duration": 148,
+    "rating": 8.8,
+    "director": "Christopher Nolan",
+    "cover": "https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg"
+  },
+  {
+    "id": "9f8e7d6c-5b4a-4c3d-8e2f-1a0b9c8d7e65",
+    "title": "Fight Club",
+    "year": 1999,
+    "genre": ["Drama"],
+    "duration": 139,
+    "rating": 8.8,
+    "director": "David Fincher",
+    "cover": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg"
+  },
+  {
+    "id": "3c2b1a09-8f7e-4d6c-9b5a-e4d3c2b1a098",
+    "title": "Interstellar",
+    "year": 2014,
+    "genre": ["Adventure", "Sci-Fi"],
+    "duration": 169,
+    "rating": 8.7,
+    "director": "Christopher Nolan",
+    "cover": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+  },
+  {
+    "id": "7a6b5c4d-3e2f-4a1b-9c8d-e7f6a5b4c321",
+    "title": "The Matrix",
+    "year": 1999,
+    "genre": ["Action", "Sci-Fi"],
+    "duration": 136,
+    "rating": 8.7,
+    "director": "Lana Wachowski, Lilly Wachowski",
+    "cover": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+  },
+  {
+    "id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d56",
+    "title": "Goodfellas",
+    "year": 1990,
+    "genre": ["Crime", "Drama"],
+    "duration": 146,
+    "rating": 8.7,
+    "director": "Martin Scorsese",
+    "cover": "https://image.tmdb.org/t/p/w500/6QMSLvU5ziIL2T6VrkaKzN2YkxK.jpg"
+  },
+  {
+    "id": "4e3d2c1b-a098-4f7e-9d6c-b5a4f3e2d1c0",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "genre": ["Fantasy", "Adventure"],
+    "duration": 178,
+    "rating": 8.8,
+    "director": "Peter Jackson",
+    "cover": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+  },
+  {
+    "id": "e9d8c7b6-a5f4-4e3d-9c2b-1a0f9e8d7c65",
+    "title": "The Lord of the Rings: The Two Towers",
+    "year": 2002,
+    "genre": ["Fantasy", "Adventure"],
+    "duration": 179,
+    "rating": 8.7,
+    "director": "Peter Jackson",
+    "cover": "https://image.tmdb.org/t/p/w500/rrGlNlzFTrXFNGXsD7NNlxq4BPb.jpg"
+  },
+  {
+    "id": "6a5b4c3d-2e1f-4a0b-9c8d-e7f6a5b4c321",
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": 2003,
+    "genre": ["Fantasy", "Adventure"],
+    "duration": 201,
+    "rating": 8.9,
+    "director": "Peter Jackson",
+    "cover": "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
+  },
+  {
+    "id": "d0c1b2a3-4e5f-4d6c-9b8a-7e6f5a4b3c21",
+    "title": "Gladiator",
+    "year": 2000,
+    "genre": ["Action", "Drama"],
+    "duration": 155,
+    "rating": 8.5,
+    "director": "Ridley Scott",
+    "cover": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg"
+  },
+  {
+    "id": "1a2b3c4d-5e6f-4a7b-8c9d-e0f1a2b3c456",
+    "title": "Whiplash",
+    "year": 2014,
+    "genre": ["Drama", "Music"],
+    "duration": 107,
+    "rating": 8.5,
+    "director": "Damien Chazelle",
+    "cover": "https://image.tmdb.org/t/p/w500/7fn624j5lj3xTme2SgiLCeuedmO.jpg"
+  },
+  {
+    "id": "f6e5d4c3-b2a1-4f0e-9d8c-7b6a5f4e3d21",
+    "title": "The Lion King",
+    "year": 1994,
+    "genre": ["Animation", "Drama"],
+    "duration": 88,
+    "rating": 8.5,
+    "director": "Roger Allers, Rob Minkoff",
+    "cover": "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
+  },
+  {
+    "id": "9a8b7c6d-5e4f-4a3b-9c2d-1e0f9a8b7c65",
+    "title": "Se7en",
+    "year": 1995,
+    "genre": ["Crime", "Thriller"],
+    "duration": 127,
+    "rating": 8.6,
+    "director": "David Fincher",
+    "cover": "https://image.tmdb.org/t/p/w500/6yoghtyTpznpBik8EngEmJskVUO.jpg"
+  },
+  {
+    "id": "c7b6a5f4-e3d2-4c1b-9a8f-7e6d5c4b3a21",
+    "title": "The Silence of the Lambs",
+    "year": 1991,
+    "genre": ["Crime", "Thriller"],
+    "duration": 118,
+    "rating": 8.6,
+    "director": "Jonathan Demme",
+    "cover": "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg"
+  },
+  {
+    "id": "5a6b7c8d-9e0f-4a1b-8c2d-3e4f5a6b7c89",
+    "title": "Saving Private Ryan",
+    "year": 1998,
+    "genre": ["War", "Drama"],
+    "duration": 169,
+    "rating": 8.6,
+    "director": "Steven Spielberg",
+    "cover": "https://image.tmdb.org/t/p/w500/miDoEMlYDJhOCvxlzI0wZqBs9Yt.jpg"
+  },
+  {
+    "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a56",
+    "title": "Parasite",
+    "year": 2019,
+    "genre": ["Drama", "Thriller"],
+    "duration": 132,
+    "rating": 8.5,
+    "director": "Bong Joon-ho",
+    "cover": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+  }
+]

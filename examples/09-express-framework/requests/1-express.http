@@ -1,0 +1,16 @@
+GET http://localhost:1234/
+
+###
+GET http://localhost:1234/data
+
+###
+POST http://localhost:1234/data
+Content-Type: application/json
+
+{
+  "title": "Datos del cliente",
+  "description": "Estos son datos enviados por el cliente"
+}
+
+### Ruta que no existe
+GET http://localhost:1234/users

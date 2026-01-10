@@ -1,0 +1,30 @@
+### Obtener todos los películas
+GET http://localhost:1234/movies
+
+### Obtener una película por id
+GET http://localhost:1234/movies/9a8b7c6d-5e4f-4a3b-9c2d-1e0f9a8b7c65
+
+### Obtener películas por género
+GET http://localhost:1234/movies?genre=Action
+
+### Crear una nueva película
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+  "title": "The Prestige",
+  "year": 2006,
+  "genre": ["Drama", "Mystery", "Sci-Fi"],
+  "duration": 130,
+  "rating": 5,
+  "director": "Christopher Nolan",
+  "cover": "https://image.tmdb.org/t/p/w500/5MXyQfz8xUP3dIFPTubhTsbFY6N.jpg"
+}
+
+### Actualizar una película
+PATCH http://localhost:1234/movies/9a8b7c6d-5e4f-4a3b-9c2d-1e0f9a8b7c65
+Content-Type: application/json
+
+{
+  "title": "hola mundo"
+}

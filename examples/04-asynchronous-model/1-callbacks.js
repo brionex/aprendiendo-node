@@ -5,30 +5,28 @@ import { server } from './_server.js'
 // depende del tiempo de resolución de cada operación,
 // no del orden en que se realizan las llamadas.
 
-export function callbacks() {
-  logger.log('Ejecución asíncrona con callbacks.\n')
+logger.log('Ejecución asíncrona con callbacks.\n')
 
-  server(1, (err, res) => {
-    if (err) {
-      logger.error(err)
-      return
-    }
-    logger.success(res)
-  })
+server(1, (err, res) => {
+  if (err) {
+    logger.error(err)
+    return
+  }
+  logger.success(res)
+})
 
-  server(2, (err, res) => {
-    if (err) {
-      logger.error(err)
-      return
-    }
-    logger.success(res)
-  })
+server(2, (err, res) => {
+  if (err) {
+    logger.error(err)
+    return
+  }
+  logger.success(res)
+})
 
-  server(3, (err, res) => {
-    if (err) {
-      logger.error(err)
-      return
-    }
-    logger.success(res)
-  })
-}
+server(3, (err, res) => {
+  if (err) {
+    logger.error(err)
+    return
+  }
+  logger.success(res)
+})

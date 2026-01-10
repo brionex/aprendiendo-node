@@ -1,8 +1,3 @@
-import { callbacks } from './1-callbacks.js'
-import { promises } from './2-promises.js'
-import { sequential } from './3-sequential.js'
-import { parallel } from './4-parallel.js'
-
 /*
   Cuando se trabaja con código asíncrono en JavaScript se manejan
   los siguientes conceptos:
@@ -27,10 +22,13 @@ import { parallel } from './4-parallel.js'
 // Ejecuta una sola función a la vez para observar
 // claramente el comportamiento de cada enfoque.
 
-const arg = process.argv[2]
+const arg = process.argv[2] ?? 1
 
-if (arg === '1') callbacks()
-else if (arg === '2') promises()
-else if (arg === '3') sequential()
-else if (arg === '4') parallel()
-else callbacks()
+const files = {
+  1: './1-callbacks.js',
+  2: './2-promises.js',
+  3: './3-sequential.js',
+  4: './4-parallel.js'
+}
+
+await import(files[arg])

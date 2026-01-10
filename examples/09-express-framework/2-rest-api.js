@@ -27,12 +27,12 @@ import path from 'node:path'
 import { getTime } from '../../lib/utils.js'
 import { validateMovie, validatePartialMovie } from './_schemas.js'
 
+const __dirname = import.meta.dirname
+const allowedOrigins = ['http://localhost:8080']
+
 // Carga el archivo json de las películas.
 const movies = JSON.parse(
-  await fs.readFile(
-    path.join(import.meta.dirname, 'public', 'movies.json'),
-    'utf-8'
-  )
+  await fs.readFile(path.join(__dirname, 'public', 'movies.json'), 'utf-8')
 )
 
 const app = express()
@@ -40,6 +40,10 @@ const PORT = process.env.PORT ?? 1234
 
 app.disable('x-powered-by')
 app.use(express.json())
+app.use(
+  '/static',
+  express.static(path.join(import.meta.dirname, 'public', 'web', 'static'))
+)
 
 // Traza todas las peticiones
 app.use((req, res, next) => {
@@ -48,7 +52,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Api de películas con Node.js')
+  res.sendFile(path.join(import.meta.dirname, 'public', 'web', 'index.html'))
 })
 
 // ----------------------------------------
@@ -57,7 +61,11 @@ app.get('/', (req, res) => {
 
 // Devuelve todos las películas
 app.get('/movies', (req, res) => {
-  res.set('Access-Control-Allow-Origin', 'http://localhost:8080')
+  const origin = req.header('origin')
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.set('Access-Control-Allow-Origin', origin)
+  }
 
   const { genre } = req.query
 

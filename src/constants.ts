@@ -1,31 +1,21 @@
 import url from 'node:url'
 import { color } from './colors.ts'
 
-// Ejemplos
+// Examples list
 export const exampleFolders = {
-  globals: '01-global-runtime',
-  modules: '02-module-system',
-  os: '03-operating-system',
-  async: '04-asynchronous-model',
-  path: '05-path-handling',
-  fs: '06-file-system',
-  ls: '07-cli-ls-exercise',
-  http: '08-http-server',
-  express: '09-express-framework'
+  globals: ['01-global-runtime', null],
+  modules: ['02-module-system', null],
+  os: ['03-operating-system', null],
+  async: ['04-asynchronous-model', '1|2|3|4'],
+  path: ['05-path-handling', null],
+  fs: ['06-file-system', '1|2|3'],
+  ls: ['07-cli-ls-exercise', '<path>'],
+  http: ['08-http-server', '1|2|3'],
+  express: ['09-express-framework', '1|2']
 } as const
 
-// Helpers
+// Messages
 const cliErrorLabel = color('CLI ERROR:').red.str
-const stripOrderPrefix = (folder: string) => folder.replace(/^\d+-/, '')
-
-// Mensajes
-const commandNotFound = (command: string) => `
-${cliErrorLabel}
-  El comando ${color(command).yellow.str} no existe.
-  Ejecuta ${
-    color('node cli.ts list').cyan.str
-  } para ver los comandos disponibles.
-`
 
 const usage = `
 ${color('Uso:').gray.str}
@@ -34,18 +24,24 @@ ${color('Uso:').gray.str}
 }
 
 ${color('Comandos disponibles:').gray.str}
-  ${color('list').yellow.str}             Lista todos los ejemplos.
+  ${color('list').yellow.str}               Lista todos los ejemplos.
   ${color('run').yellow.str} ${
-  color('<nombre>').gray.str
-}     Ejecuta un ejemplo.
+  color('<ejemplo>').gray.str
+}      Ejecuta un ejemplo.
+`
+
+const commandNotFound = (command: string) => `
+${cliErrorLabel}
+  El comando ${color(command).yellow.str} no existe.
+  Ejecuta ${color('node cli.ts').cyan.str} para ver los comandos disponibles.
 `
 
 const examplesTitle = `
 ${color('Lista de ejemplos:').gray.str}
 `
 
-const exampleItemList = (name: string, folder: string) =>
-  `- ${name.padEnd(10)} ${color(stripOrderPrefix(folder)).gray.str}`
+const exampleListItem = (name: string, args: string, folder: string) =>
+  `- ${name} ${color(args).gray.str} ${folder}`
 
 const missingExampleName = `
 ${cliErrorLabel}
@@ -75,12 +71,12 @@ const runFinished = `
 ${color('Fin de ejecución').gray.bold.str}
 `
 
-// Exportación de los mensajes
+// Exports
 export const MESSAGES = {
   commandNotFound,
   usage,
   examplesTitle,
-  exampleItemList,
+  exampleListItem,
   missingExampleName,
   exampleNotExist,
   executingExample,

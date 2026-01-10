@@ -6,4 +6,9 @@ const files = {
   3: './3-stat.js'
 }
 
+if (!files[arg]) {
+  console.log(`El argumento "${arg}" no es válido`)
+  process.exit(1)
+}
+
 await import(files[arg])

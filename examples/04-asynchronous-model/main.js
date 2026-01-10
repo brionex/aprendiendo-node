@@ -22,13 +22,18 @@
 // Ejecuta una sola función a la vez para observar
 // claramente el comportamiento de cada enfoque.
 
-const arg = process.argv[2] ?? 1
+const arg = process.argv[2] ?? '1'
 
 const files = {
   1: './1-callbacks.js',
   2: './2-promises.js',
   3: './3-sequential.js',
   4: './4-parallel.js'
+}
+
+if (!files[arg]) {
+  console.log(`El argumento "${arg}" no es válido`)
+  process.exit(1)
 }
 
 await import(files[arg])

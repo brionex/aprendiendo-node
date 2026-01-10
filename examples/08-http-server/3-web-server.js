@@ -162,6 +162,9 @@ async function POSTMethod(req, res) {
   NotFound(res)
 }
 
+// --------------------------------------------
+// Ejecución de un servidor web.
+// --------------------------------------------
 export async function webServer() {
   const port = await findFreePort(3000)
 
@@ -186,3 +189,5 @@ export async function webServer() {
     console.log(`Servidor escuchando en: http://localhost:${port}\n`)
   })
 }
+
+webServer()

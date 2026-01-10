@@ -130,23 +130,23 @@ function removeDir() {
   }
 }
 
-export function fsSync() {
-  // Función principal.
-  // Ejecuta todas las operaciones de forma secuencial y bloqueante.
+// --------------------------------------------
+// Ejecución síncrona con fs.
+// Ejecuta todas las operaciones de forma secuencial y bloqueante.
+// --------------------------------------------
 
-  console.log('Ejecución síncrona con fs.\n')
-  console.log(`Archivo de prueba:\n - ${filePath}\n`)
+console.log('Ejecución síncrona con fs.\n')
+console.log(`Archivo de prueba:\n - ${filePath}\n`)
 
-  // Cada función se ejecuta únicamente cuando la anterior finaliza.
-  // Si ocurre un error, el flujo continúa, pero las operaciones
-  // dependientes probablemente también fallarán.
+// Cada función se ejecuta únicamente cuando la anterior finaliza.
+// Si ocurre un error, el flujo continúa, pero las operaciones
+// dependientes probablemente también fallarán.
 
-  writeFile()
-  existsFile()
-  readFile()
-  createDir()
-  copyFile()
-  moveFile()
-  removeFile()
-  removeDir()
-}
+writeFile()
+existsFile()
+readFile()
+createDir()
+copyFile()
+moveFile()
+removeFile()
+removeDir()

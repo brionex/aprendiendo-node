@@ -1,4 +1,3 @@
-import { logger } from '../../lib/logger.js'
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
@@ -99,27 +98,27 @@ async function readFiles() {
   })
 }
 
-export function fsAsync() {
-  // Función principal (orquestadora del proceso).
-  // Prepara el entorno, ejecuta el flujo asíncrono
-  // y realiza la limpieza final.
+// --------------------------------------------
+// Ejecución asíncrona con fs/promises.
+// --------------------------------------------
 
-  console.log('Ejecución asíncrona con fs/promises.\n')
-  console.log('-> Creando directorio')
+// Prepara el entorno, ejecuta el flujo asíncrono y realiza la limpieza final.
 
-  // Se crea el directorio base antes de iniciar cualquier operación.
-  fs.mkdir(folderPath, { recursive: true })
-    .then(async () => {
-      console.log('✔  Directorio creado: prueba\n')
+console.log('Ejecución asíncrona con fs/promises.\n')
+console.log('-> Creando directorio')
 
-      await createFiles()
-      await readFiles()
+// Se crea el directorio base antes de iniciar cualquier operación.
+fs.mkdir(folderPath, { recursive: true })
+  .then(async () => {
+    console.log('✔  Directorio creado: prueba\n')
 
-      console.log('\n-> Eliminando directorio')
-      await fs.rm(folderPath, { recursive: true })
-      console.log(`✔  Directorio eliminado: ${path.sep}prueba${path.sep}\n`)
-    })
-    .catch((err) => {
-      console.log('✖  Error al crear directorio\n', err)
-    })
-}
+    await createFiles()
+    await readFiles()
+
+    console.log('\n-> Eliminando directorio')
+    await fs.rm(folderPath, { recursive: true })
+    console.log(`✔  Directorio eliminado: ${path.sep}prueba${path.sep}\n`)
+  })
+  .catch((err) => {
+    console.log('✖  Error al crear directorio\n', err)
+  })

@@ -1,10 +1,9 @@
-import { fsSync } from './1-fs-sync.js'
-import { fsAsync } from './2-fs-async.js'
-import { stat } from './3-stat.js'
+const arg = process.argv[2] ?? '1'
 
-const arg = process.argv[2]
+const files = {
+  1: './1-fs-sync.js',
+  2: './2-fs-async.js',
+  3: './3-stat.js'
+}
 
-if (arg === '1') fsSync()
-else if (arg === '2') fsAsync()
-else if (arg === '3') stat()
-else fsSync()
+await import(files[arg])

@@ -22,18 +22,16 @@
 */
 
 import express from 'express'
-import fs from 'node:fs/promises'
 import path from 'node:path'
-import { getTime } from '../../lib/utils.js'
+import { getTime, readJSON } from '../../lib/utils.js'
 import { validateMovie, validatePartialMovie } from './_schemas.js'
 
 const __dirname = import.meta.dirname
 const allowedOrigins = ['http://localhost:8080']
+const jsonPath = path.join(__dirname, 'public', 'movies.json')
 
 // Carga el archivo json de las películas.
-const movies = JSON.parse(
-  await fs.readFile(path.join(__dirname, 'public', 'movies.json'), 'utf-8')
-)
+const movies = readJSON(jsonPath)
 
 const app = express()
 const PORT = process.env.PORT ?? 1234
@@ -137,6 +135,16 @@ app.patch('/movies/:id', (req, res) => {
   movies[movieIndex] = movieUpdated
 
   res.json(movieUpdated)
+})
+
+// ----------------------------------------
+// Configuración de CORS pre-flight
+// ----------------------------------------
+app.options('/movies', (req, res) => {
+  res.set('Access-Control-Allow-Origin', req.header('origin'))
+  res.set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+  res.set('Access-Control-Allow-Headers', 'Content-Type')
+  res.status(200).end()
 })
 
 // Middleware para manejar errores 404

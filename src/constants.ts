@@ -11,7 +11,8 @@ export const exampleFolders = {
   fs: ['06-file-system', '1|2|3'],
   ls: ['07-cli-ls-exercise', '<path>'],
   http: ['08-http-server', '1|2|3'],
-  express: ['09-express-framework', '1|2']
+  express: ['09-express-framework', '1|2'],
+  mvc: ['10-express-mvc', null]
 } as const
 
 // Messages
